@@ -62,5 +62,5 @@ To train the AI, confirm there are `.png` files in both `dataset/car/` and `data
 To test the AI's capabilities, change the `img.png` to be the name of the image you want to test it on.
 
 ### Using in-game
-tba
+tba hi
 
