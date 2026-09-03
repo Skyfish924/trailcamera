@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.BS924.trailcamera'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'ai.djl:api:0.36.0'
+    implementation 'ai.djl.pytorch:pytorch-engine:0.36.0'
+
+    runtimeOnly 'ai.djl.pytorch:pytorch-jni:2.7.1-0.36.0'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.17'
+
+    testImplementation platform('org.junit:junit-bom:6.0.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
