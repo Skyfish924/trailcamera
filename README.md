@@ -33,7 +33,7 @@ Get-ChildItem training -Filter *.jpg -Recurse | Remove-Item
 - Moved `ffmpeg.exe` to `bin`
 - Reorganized some classes
 ### Bugfixes
-- None, which means I'm such good coder there are none! or maybe I'm such a bad coder I just can't find any
+- None, which means I'm such good coder, there are none! or maybe I'm such a bad coder I just can't find any
 
 ---
 
