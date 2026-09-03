@@ -38,9 +38,9 @@ Get-ChildItem training -Filter *.jpg -Recurse | Remove-Item
 ---
 
 ## How to use
-**This program is pretty easy to use, but just incase you're lost, here's an in-depth usage guide.**
+**This program is pretty easy to use, but just in case you're lost, here's an in-depth usage guide.**
 ### Uploading files
-If you want to upload a video, add the mp4 to `training/`. If you want to upload an image, add it to either `car/` or `not_car/`.
+If you want to upload a video, add the mp4 to `training/`. If you want to upload an image, add it to either `dataset/car/` or `dataset/not_car/`.
 
 ### Extracting the frames
 **Note: if you uploaded images, you can skip this step, as well as the next two.**
@@ -56,7 +56,7 @@ To label the frames as either containing a car or not containing a car, simply r
 Same as above, just with `DatasetBuilder`.
 
 ### Training
-To train the AI, confirm there are `.png` files in both `car/` and `not_car/`, then run `Trainer`.
+To train the AI, confirm there are `.png` files in both `dataset/car/` and `dataset/not_car/`, then run `Trainer`.
 
 ### Testing
 To test the AI's capabilities, change the `img.png` to be the name of the image you want to test it on.
