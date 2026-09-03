@@ -27,7 +27,7 @@ Get-ChildItem training -Filter *.jpg -Recurse | Remove-Item
 ### Additions
 - Added experimental hardware acceleration
 - New neat little progress bar to indicate training progress
-- Added a `bin` folder in `root`
+- Added a `bin` folder to the project root
 ### Changes
 - Switched to `.png`
 - Moved `ffmpeg.exe` to `bin`
@@ -53,7 +53,7 @@ You can also change the FPS, however that will increase the time it takes to com
 To label the frames as either containing a car or not containing a car, simply run `Labeler`.
 
 ### Adding the data
-Same as above, just with `DatasetBuilder`.
+Same as the step above, just with `DatasetBuilder`.
 
 ### Training
 To train the AI, confirm there are `.png` files in both `dataset/car/` and `dataset/not_car/`, then run `Trainer`.
