@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DatasetBuilder {
 
-    private static final int SIZE = 256;
+    private static final int SIZE = 768;
     private static BufferedImage resize(
             BufferedImage source
     ) {

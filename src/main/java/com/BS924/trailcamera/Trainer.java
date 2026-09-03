@@ -8,7 +8,6 @@ import ai.djl.training.DefaultTrainingConfig;
 import ai.djl.training.EasyTrain;
 import ai.djl.training.dataset.ArrayDataset;
 import ai.djl.training.evaluator.Accuracy;
-import ai.djl.training.listener.TrainingListener;
 import ai.djl.training.loss.Loss;
 import ai.djl.training.optimizer.Adam;
 import ai.djl.training.tracker.Tracker;
@@ -52,16 +51,26 @@ public class Trainer {
                         engine.getVersion()
         );
 
-        Device[] devices = engine.getDevices(1);
+        Device device = null;
 
-        if (devices.length == 0) {
-            throw new IllegalStateException(
-                    "No compute device available."
-            );
+        for (Device d : engine.getDevices()) {
+            if (d.isGpu()) {
+                device = d;
+                break;
+            }
         }
 
-        Device device = devices[0];
+        if (device == null) {
+            Device[] devices = engine.getDevices(1);
 
+            if (devices.length == 0) {
+                throw new IllegalStateException(
+                        "No compute device available."
+                );
+            }
+
+            device = devices[0];
+        }
         System.out.println(
                 "Training device: " + device
         );

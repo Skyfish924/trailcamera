@@ -243,6 +243,14 @@ public class NeuralNetwork implements AutoCloseable {
         Engine engine =
                 Engine.getEngine("PyTorch");
 
+        System.out.println("Engine: " + engine.getEngineName());
+        System.out.println("PyTorch version: " + engine.getVersion());
+
+        System.out.println("Available devices:");
+        for (Device d : engine.getDevices()) {
+            System.out.println("  " + d);
+        }
+
         Device[] devices =
                 engine.getDevices(1);
 
