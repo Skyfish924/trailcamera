@@ -30,16 +30,22 @@ public class Trainer {
     private static final String MODEL_DIR =
             "training/model";
 
-    public static void main(String[] args)
-            throws Exception {
+    public static void main(String[] args) throws Exception {
+        boolean hasNvidiaGpu = System.getenv("CUDA_PATH") != null || System.getenv("NVTOOLSEXT_PATH") != null;
 
-        System.setProperty(
-                "ai.djl.default_engine",
-                "PyTorch"
-        );
+        if (hasNvidiaGpu) {
+            System.out.println("NVIDIA GPU environment detected. Enabling CUDA flavors...");
+            System.setProperty("PYTORCH_VERSION", "2.5.1");
+            System.setProperty("PYTORCH_FLAVOR", "cu124");
+            System.setProperty("ai.djl.default_engine", "PyTorch");
+        } else {
+            System.out.println("No NVIDIA GPU environment detected. Forcing fallback to CPU native runtime...");
+            System.setProperty("PYTORCH_VERSION", "2.5.1");
+            System.setProperty("PYTORCH_FLAVOR", "cpu");
+            System.setProperty("ai.djl.default_engine", "PyTorch");
+        }
 
-        Engine engine =
-                Engine.getEngine("PyTorch");
+        Engine engine = Engine.getEngine("PyTorch");
 
         System.out.println(
                 "Engine: " +

@@ -7,6 +7,7 @@ public class ProgressListener implements TrainingListener {
 
     private final int totalEpochs;
     private int currentEpoch = 0;
+    public String time = "coming soon...";
 
     public ProgressListener(int totalEpochs) {
         this.totalEpochs = totalEpochs;
@@ -26,17 +27,30 @@ public class ProgressListener implements TrainingListener {
                 "#".repeat(filled) +
                         "-".repeat(20 - filled);
 
+
         System.out.printf(
-                "\rEpoch %d/%d [%s] %d%%",
+                "\rEpoch %d/%d [%s] %d%% (Estimated time remaining: %s)",
                 currentEpoch,
                 totalEpochs,
                 bar,
-                percent
+                percent,
+                time
         );
 
         if (currentEpoch == totalEpochs) {
             System.out.println();
         }
+
+/*      Stopwatch timer = new Stopwatch();
+
+        if (currentEpoch == 1) {
+            timer.start();
+        }
+        if (currentEpoch == 5) {
+            long elapsed = timer.stop();
+            time = elapsed + "s";
+        }
+*/
     }
 
     @Override
@@ -52,14 +66,14 @@ public class ProgressListener implements TrainingListener {
     @Override
     public void onTrainingBatch(
             Trainer trainer,
-            TrainingListener.BatchData batchData
+            BatchData batchData
     ) {
     }
 
     @Override
     public void onValidationBatch(
             Trainer trainer,
-            TrainingListener.BatchData batchData
+            BatchData batchData
     ) {
     }
 }
