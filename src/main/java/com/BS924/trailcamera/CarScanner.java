@@ -16,9 +16,9 @@ public class CarScanner {
 
     private static final int STEP = 64;
 
-    private static final double DETECTION_THRESHOLD = 0.80;
+    private static final double DETECTION_THRESHOLD = 0.75;
 
-    private static final double NMS_IOU_THRESHOLD = 0.40;
+    private static final double NMS_IOU_THRESHOLD = 0.10;
 
     public record Detection(Rectangle bounds, double probability) {
 

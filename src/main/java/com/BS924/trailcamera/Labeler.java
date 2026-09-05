@@ -305,7 +305,7 @@ public class Labeler extends JFrame {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void start() throws Exception {
 
         File frames = new File("training/frames");
 

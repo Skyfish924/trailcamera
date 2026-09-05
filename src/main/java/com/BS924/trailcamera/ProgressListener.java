@@ -40,17 +40,6 @@ public class ProgressListener implements TrainingListener {
         if (currentEpoch == totalEpochs) {
             System.out.println();
         }
-
-/*      Stopwatch timer = new Stopwatch();
-
-        if (currentEpoch == 1) {
-            timer.start();
-        }
-        if (currentEpoch == 5) {
-            long elapsed = timer.stop();
-            time = elapsed + "s";
-        }
-*/
     }
 
     @Override

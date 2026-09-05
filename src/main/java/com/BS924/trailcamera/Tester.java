@@ -17,7 +17,7 @@ public class Tester {
                 );
 
         File inputFile =
-                new File("training/testing/img_3.png");
+                new File("training/testing/img_1.png");
 
         BufferedImage frame =
                 ImageIO.read(inputFile);
